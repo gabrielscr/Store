@@ -56,6 +56,8 @@ namespace StoreApi
             else
             {
                 app.UseHsts();
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
 
             app.UseCors("Dev");
@@ -69,10 +71,7 @@ namespace StoreApi
                     template: "api/{controller}/{action}/{id?}");
             });
 
-            if (env.IsDevelopment())
-            {
-                app.UseWelcomePage();
-            }
+            app.UseWelcomePage();
         }
 
     }
